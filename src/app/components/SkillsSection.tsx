@@ -28,7 +28,7 @@ import GoogleWorkspaceIcon from "@/assets/tools_logos/Google Workspace.svg";
 
 export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
   const { language, data } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
 
   return (
     <section id="skills" className="py-24 border-t border-border">

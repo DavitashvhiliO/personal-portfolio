@@ -1,13 +1,6 @@
 const puppeteer = require('puppeteer');
-const { spawn } = require('child_process');
 
 (async () => {
-  // Start the preview server
-  const previewProcess = spawn('npx.cmd', ['vite', 'preview', '--port', '4173'], { stdio: 'inherit' });
-
-  // Wait 3 seconds for server to start
-  await new Promise(resolve => setTimeout(resolve, 3000));
-
   console.log('Launching Puppeteer...');
   const browser = await puppeteer.launch({ headless: "new" });
   const page = await browser.newPage();
@@ -25,9 +18,9 @@ const { spawn } = require('child_process');
     console.log('PAGE ERROR:', err.message);
   });
 
-  console.log('Navigating to http://localhost:4173 ...');
+  console.log('Navigating to http://localhost:5173 ...');
   try {
-    await page.goto('http://localhost:4173', { waitUntil: 'networkidle0', timeout: 10000 });
+    await page.goto('http://localhost:5173', { waitUntil: 'networkidle0', timeout: 15000 });
   } catch (err) {
     console.log('Navigation error:', err.message);
   }
@@ -40,6 +33,5 @@ const { spawn } = require('child_process');
   }
 
   await browser.close();
-  previewProcess.kill();
   process.exit(0);
 })();

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { ArrowDown } from "lucide-react";
+import { Download, ArrowDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations/translations";
 import { m, Marquee } from "../utils";
 import profileImage from "@/assets/profile_2.jpg";
 
 export function Hero() {
   const { language, data } = useLanguage();
+  const t = translations[language as keyof typeof translations];
   const [isFading, setIsFading] = useState(false);
   const [index, setIndex] = useState(0);
 
@@ -85,10 +87,10 @@ export function Hero() {
               return (
                 <Marquee reverse>
                   {items.map((item, i) => (
-                    <>
-                      <span key={`item-${i}`}>{item}</span>
-                      <span key={`sep-${i}`} className="opacity-30">/</span>
-                    </>
+                    <div key={i} className="flex items-center gap-6">
+                      <span>{item}</span>
+                      <span className="opacity-30">/</span>
+                    </div>
                   ))}
                 </Marquee>
               );

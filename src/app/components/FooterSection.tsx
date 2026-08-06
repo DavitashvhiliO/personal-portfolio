@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Copy, Check, ExternalLink, Download } from "lucide-react";
+import { Copy, Check, ExternalLink, Download, MapPin } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
 import { m } from "../utils";
 
 export function FooterSection() {
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 

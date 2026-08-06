@@ -5,7 +5,7 @@ import { Counter } from "../utils";
 
 export function ExpertiseSection() {
   const { language } = useLanguage();
-  const t = translations[language];
+  const t = translations[language as keyof typeof translations];
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -55,5 +55,31 @@ export function ExpertiseSection() {
           </div>
         </div>
       </section>
+  );
+}
+
+function ExpertiseAccordion({ list }: { list: any[] }) {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  return (
+    <div className="flex flex-col gap-4">
+      {list.map((item, i) => (
+        <div key={i} className="border-b border-border/40 pb-4">
+          <button 
+            className="w-full flex justify-between items-center text-left py-2 hover:text-foreground transition-colors"
+            onClick={() => setOpenIndex(openIndex === i ? null : i)}
+          >
+            <span className="text-xl md:text-2xl font-semibold text-foreground">{item.title}</span>
+            <span className="text-2xl">{openIndex === i ? '−' : '+'}</span>
+          </button>
+          <div 
+            className={`grid transition-all duration-300 ease-in-out ${openIndex === i ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}
+          >
+            <div className="overflow-hidden">
+              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }
