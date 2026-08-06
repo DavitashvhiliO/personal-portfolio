@@ -306,7 +306,7 @@ function ResumeContent() {
       <SkillsSection isDarkMode={isDarkMode} />
       <EducationSection />
       <ExpertiseSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <FooterSection />
 
 

@@ -60,7 +60,7 @@ export function FooterSection() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {language === "en" 
                     ? "Let's turn your vision into a living digital product. Whether you're launching a new venture, designing a complex web system, or looking to scale your user experience — skip the scheduling and write to me directly at my email address. I will get back to you within 24 hours."
-                    : "შევქმნათ ციფრული პროდუქტი, რომელიც მუშაობს. თუ გსურთ ახალი იდეის გაშვება, რთული სისტემების დაპროექტება ან სამომხმარებლო გამოცდილების მასშტაბირება — გამოტოვეთ შეხვედრების დაჯავშნა და პირდაპირ მომწერეთ ელ-ფოსტაზე. 24 საათის განმავლობაში გიპასუხებთ."
+                    : "თუ ახალ პროექტს იწყებ ან არსებულის გაუმჯობესება გსურს, მომწერე შენი იდეის შესახებ. ერთად ვიმუშაოთ და ვაქციოთ ის თანამედროვე ციფრულ პროდუქტად."
                   }
                 </p>
               </div>
@@ -70,7 +70,7 @@ export function FooterSection() {
                   href="mailto:davitashviliotari@gmail.com"
                   className="w-full block text-center py-4 bg-foreground text-background  text-xs hover:bg-muted-foreground transition-all duration-300 border border-transparent"
                 >
-                  {language === "en" ? "Write an Email ↗" : "მოგვწერეთ ელ-ფოსტაზე ↗"}
+                  {language === "en" ? "Write an Email ↗" : "მომწერე ელ-ფოსტაზე ↗"}
                 </a>
                 
                 <button
