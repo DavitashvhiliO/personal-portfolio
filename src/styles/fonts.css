@@ -1,0 +1,13 @@
+* {
+  font-family: 'Google Sans', sans-serif !important;
+}
+
+/* Remove mono-space exemptions as requested by user */
+.font-mono, 
+.font-mono *, 
+code, 
+pre, 
+kbd, 
+samp {
+  font-family: 'Google Sans', sans-serif !important;
+}

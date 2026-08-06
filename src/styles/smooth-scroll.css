@@ -1,0 +1,160 @@
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Native smooth fallback */
+html {
+  scroll-padding-top: 90px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Reveal-on-scroll utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+.reveal-delay-5 { transition-delay: 400ms; }
+
+/* Auto-stagger direct children */
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-children.is-visible > * { opacity: 1; transform: translateY(0); }
+.reveal-children.is-visible > *:nth-child(1) { transition-delay: 60ms; }
+.reveal-children.is-visible > *:nth-child(2) { transition-delay: 140ms; }
+.reveal-children.is-visible > *:nth-child(3) { transition-delay: 220ms; }
+.reveal-children.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+.reveal-children.is-visible > *:nth-child(5) { transition-delay: 380ms; }
+.reveal-children.is-visible > *:nth-child(6) { transition-delay: 460ms; }
+
+/* FAB pulse to draw attention on first appearance */
+@keyframes fabPop {
+  0% { opacity: 0; transform: translateY(24px); }
+  60% { opacity: 1; transform: translateY(-4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.fab-pop { animation: fabPop 700ms cubic-bezier(0.34, 1.56, 0.64, 1) 600ms both; }
+
+/* Underline draw on hover for content links */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 400ms cubic-bezier(0.22, 1, 0.36, 1), color 600ms ease;
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Section title shimmer on first reveal */
+@keyframes titleSlide {
+  0% { opacity: 0; transform: translateX(-12px); letter-spacing: 0.18em; }
+  100% { opacity: 1; transform: translateX(0); letter-spacing: 0.12em; }
+}
+.section-title.is-visible {
+  animation: titleSlide 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Soft fade-in for nav items */
+@keyframes navFadeIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.nav-fade { animation: navFadeIn 600ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Smooth scroll for all elements */
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #2a2a2a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.dark * {
+  scrollbar-color: #555 #2a2a2a;
+}
+
+/* Link styles - no underline by default, blue on hover with 600ms smooth transition */
+a {
+  text-decoration: none;
+  transition: color 600ms ease;
+}
+
+/* Ensure sections are scrollable */
+section {
+  scroll-margin-top: 90px;
+}
