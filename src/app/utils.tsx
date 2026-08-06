@@ -52,3 +52,13 @@ export function Counter({ targetValue, suffix = "" }: { targetValue: number; suf
 
   return <span ref={elementRef}>{count}{suffix}</span>;
 }
+export function Marquee({ children, reverse = false }: { children: React.ReactNode, reverse?: boolean }) {
+  return (
+    <div className="overflow-hidden w-full py-2 text-xs uppercase tracking-widest font-semibold marquee-hover-pause">
+      <div className={reverse ? 'animate-marquee-reverse' : 'animate-marquee'}>
+        <div className="flex shrink-0 items-center gap-6 px-3">{children}</div>
+        <div className="flex shrink-0 items-center gap-6 px-3">{children}</div>
+      </div>
+    </div>
+  );
+}
