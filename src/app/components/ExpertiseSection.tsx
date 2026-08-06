@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
-import { Counter } from "../App";
+import { Counter } from "../utils";
 
 export function ExpertiseSection() {
   const { language } = useLanguage();

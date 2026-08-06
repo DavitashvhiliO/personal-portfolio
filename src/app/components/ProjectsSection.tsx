@@ -1,6 +1,6 @@
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
-import { m } from "../App";
+import { m } from "../utils";
 import mockupImg from "@/assets/profile_2.jpg";
 
 export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy: any }) {

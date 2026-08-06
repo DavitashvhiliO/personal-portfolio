@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import { m } from "../App";
+import { m } from "../utils";
 import profileImage from "@/assets/profile_2.jpg";
 
 export function Hero() {

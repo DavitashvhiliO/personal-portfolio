@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Copy, Check, ExternalLink, Download } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
-import { m } from "../App";
+import { m } from "../utils";
 
 export function FooterSection() {
   const { language } = useLanguage();
