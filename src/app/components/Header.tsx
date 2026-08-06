@@ -33,9 +33,9 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
       <a href="#expertise" className=" text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
         {language === "en" ? "What I Do" : "რას ვაკეთებ"}
       </a>
-      <a href="#testimonials" className=" text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+      {/* <a href="#testimonials" className=" text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
         {language === "en" ? "Applause Corner" : "გამოხმაურებები"}
-      </a>
+      </a> */}
       <a href="#contact" className=" text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
         {language === "en" ? "Contact" : "კონტაქტი"}
       </a>

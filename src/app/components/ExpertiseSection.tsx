@@ -30,9 +30,9 @@ export function ExpertiseSection() {
                   <span className="text-sm font-semibold text-foreground/80 mb-6">
                     {language === "en" ? "Professional Experience" : "წლიანი პროფესიონალური გამოცდილება"}
                   </span>
-                  <div className="flex items-baseline mt-auto">
+                  <div className="flex items-baseline mt-auto font-bold text-5xl md:text-6xl tracking-tighter text-foreground">
                     <Counter targetValue={4} />
-                    <span className="font-bold text-5xl md:text-6xl tracking-tighter text-foreground">+</span>
+                    <span>+</span>
                   </div>
                 </div>
 
@@ -41,9 +41,9 @@ export function ExpertiseSection() {
                   <span className="text-sm font-semibold text-foreground/80 mb-6">
                     {language === "en" ? "Successful Projects" : "წარმატებული პროექტი"}
                   </span>
-                  <div className="flex items-baseline mt-auto">
+                  <div className="flex items-baseline mt-auto font-bold text-5xl md:text-6xl tracking-tighter text-foreground">
                     <Counter targetValue={10} />
-                    <span className="font-bold text-5xl md:text-6xl tracking-tighter text-foreground">+</span>
+                    <span>+</span>
                   </div>
                 </div>
               </div>
