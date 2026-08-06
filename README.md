@@ -20,13 +20,3 @@ This is a modern, bilingual (KA/EN), responsive web portfolio built with React, 
    \`\`\`bash
    npm run dev
    \`\`\`
-
-## Deployment (Vercel)
-
-This project is fully optimized for Vercel deployment. 
-
-To deploy:
-1. Push this repository to GitHub.
-2. Import the repository in Vercel.
-3. The default Vite settings (\`npm run build\`) will be automatically detected.
-4. Deploy and attach your custom domain.
