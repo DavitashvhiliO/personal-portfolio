@@ -69,7 +69,7 @@ export function Hero() {
               >
                 <img
                   alt={t.name}
-                  className="w-full h-full object-cover object-top hover-zoom-img transition-all duration-700 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover object-top hover-zoom-img transition-all duration-700 grayscale-0 lg:grayscale lg:group-hover:grayscale-0"
                   src={profileImage}
                 />
               </div>
@@ -81,9 +81,10 @@ export function Hero() {
         <div className="w-full mt-auto flex flex-col gap-0">
           <div className="mb-2">
             {(() => {
-              const items = language === "en"
+              const baseItems = language === "en"
                 ? ["Product Designer", "UI/UX Strategy", "Scalable Design Systems", "Interaction Design", "User Research", "Usability Testing"]
                 : ["პროდუქტის დიზაინი", "UI/UX სტრატეგია", "დიზაინ სისტემები", "ინტერაქციის დიზაინი", "მომხმარებლის კვლევა", "გამოყენებადობის ტესტი"];
+              const items = [...baseItems, ...baseItems, ...baseItems];
               return (
                 <Marquee reverse>
                   {items.map((item, i) => (

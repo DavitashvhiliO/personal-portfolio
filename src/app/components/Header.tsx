@@ -72,21 +72,21 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
           >
             {isDarkMode ? <Sun className="size-4 shrink-0" /> : <Moon className="size-4 shrink-0" />}
           </button>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden size-8 border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center"
-            aria-label="Toggle mobile menu"
-          >
-            {isMobileMenuOpen ? <X className="size-4 shrink-0" /> : <Menu className="size-4 shrink-0" />}
-          </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 border-t border-border/80' : 'max-h-0'}`}>
-        <nav className="flex flex-col p-6 gap-4 bg-background shadow-xl" onClick={() => setIsMobileMenuOpen(false)}>
+      {/* Mobile Menu FAB */}
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="md:hidden fixed bottom-6 right-6 z-[100] size-14 rounded-full bg-foreground text-background shadow-lg shadow-foreground/20 flex items-center justify-center transition-transform active:scale-95"
+        aria-label="Toggle mobile menu"
+      >
+        {isMobileMenuOpen ? <X className="size-6 shrink-0" /> : <Menu className="size-6 shrink-0" />}
+      </button>
+
+      {/* Mobile Menu Popup */}
+      <div className={`md:hidden fixed right-6 bottom-24 w-64 z-[90] overflow-hidden transition-all duration-300 ease-in-out transform origin-bottom-right ${isMobileMenuOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'}`}>
+        <nav className="flex flex-col p-6 gap-4 bg-card border border-border shadow-2xl rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
           {navLinks}
         </nav>
       </div>
