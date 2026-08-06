@@ -173,7 +173,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   const fetchData = async (lang: Language) => {
-    setIsLoadingData(true);
+    if (!data) setIsLoadingData(true);
     try {
       // Prioritize local translations file directly to prevent any stale/incorrect Firestore data
       setData(getFallbackData(lang));

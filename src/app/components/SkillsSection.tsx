@@ -31,9 +31,9 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
   const t = translations[language as keyof typeof translations];
 
   return (
-    <section id="skills" className="py-24 border-t border-border">
+    <section id="skills" className="py-16 md:py-24 border-t border-border">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-border/80 pb-6">
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-10 md:mb-16 border-b border-border/80 pb-6">
             <h2 className=" text-sm md:text-base text-muted-foreground ">
               // {language === "en" ? "Skills & Tools" : "უნარები და ხელსაწყოები"}
             </h2>
@@ -42,18 +42,18 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
           <div className="flex flex-col gap-10">
             {/* Skills Row */}
             <div className="flex flex-col gap-4">
-              <span className=" text-xs text-muted-foreground border-b border-border pb-2">
+              <span className=" text-sm md:text-base font-semibold text-muted-foreground border-b border-border pb-2">
                 {t.skills}
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {data?.skills?.map((skill, i) => (
                   <div key={i} className="border border-border p-6 bg-card/40 hover:border-foreground/30 transition-colors duration-300">
-                    <h4 className=" text-sm font-bold text-foreground border-b border-border/60 pb-2 mb-3">
+                    <h4 className=" text-base font-bold text-foreground border-b border-border/60 pb-2 mb-3">
                       {skill.category}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {skill.text.split(", ").map((tag, j) => (
-                        <span key={j} className="group  text-[10px] border border-border/80 px-2.5 py-1.5 bg-background text-foreground hover:bg-foreground hover:text-background transition-colors flex items-center gap-1.5">
+                        <span key={j} className="group text-[11px] md:text-xs border border-border/80 px-2.5 py-1.5 bg-background text-foreground hover:bg-foreground hover:text-background transition-colors flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 bg-foreground/40 group-hover:bg-background rounded-full shrink-0 transition-colors"></span>
                           {tag}
                         </span>
@@ -66,7 +66,7 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
 
             {/* Tools Row */}
             <div className="flex flex-col gap-4 mt-8">
-              <span className=" text-xs text-muted-foreground border-b border-border pb-2 ">
+              <span className=" text-sm md:text-base font-semibold text-muted-foreground border-b border-border pb-2 ">
                 {language === "en" ? "Tools" : "ხელსაწყოები"}
               </span>
               <div className="flex flex-wrap gap-2.5">
@@ -96,7 +96,7 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
                   { name: 'Microsoft Office', icon: MicrosoftOfficeIcon },
                   { name: 'Google Workspace', icon: GoogleWorkspaceIcon }
                 ].map((tool, i) => (
-                  <div key={i} className="group  text-xs tracking-wider border border-border/30 hover:border-foreground/40 px-4 py-2 bg-background text-foreground transition-colors flex items-center gap-2.5 w-fit cursor-none ">
+                  <div key={i} className="group text-sm tracking-wider border border-border/30 hover:border-foreground/40 px-4 py-2 bg-background text-foreground transition-colors flex items-center gap-2.5 w-fit cursor-none ">
                     <img src={tool.icon} alt={tool.name} className={`w-5 h-5 object-contain ${(tool.name === 'Bolt.new' || tool.name === 'Framer') && isDarkMode ? 'invert' : ''}`} />
                     <span>{tool.name}</span>
                   </div>

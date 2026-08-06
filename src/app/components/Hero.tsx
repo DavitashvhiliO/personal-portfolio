@@ -41,11 +41,11 @@ export function Hero() {
                 </span>
               </div>
               
-              <h1 className=" font-black text-3xl md:text-6xl tracking-tighter text-foreground mt-3 leading-tight">
+              <h1 className=" font-black text-4xl md:text-6xl tracking-tighter text-foreground mt-3 leading-tight">
                 {t.name}
               </h1>
               
-              <p className=" text-xs md:text-sm leading-relaxed text-muted-foreground max-w-2xl mt-4">
+              <p className=" text-sm md:text-base leading-relaxed text-muted-foreground max-w-2xl mt-4">
                 {t.bio}
               </p>
 
@@ -54,7 +54,7 @@ export function Hero() {
                 <a
                   href="https://drive.google.com/uc?export=download&id=1WLmZe8jFMsPjnVU_Qa8tGgdNUj2QDiHQ"
                   download
-                  className="inline-flex items-center gap-2.5 border-2 border-foreground px-5 py-3  text-xs hover:bg-foreground hover:text-background transition-all duration-300 w-full sm:w-auto justify-center"
+                  className="inline-flex items-center gap-2.5 border-2 border-foreground px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-all duration-300 w-full sm:w-auto justify-center"
                 >
                   <Download className="size-4 shrink-0" />
                   <span>{language === "en" ? "Download Resume" : "რეზიუმეს გადმოწერა"}</span>

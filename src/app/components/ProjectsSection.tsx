@@ -9,10 +9,10 @@ export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy
   const projects = data?.featuredProjects || [];
 
   return (
-    <section id="projects" className="py-24 border-t border-border bg-card/20">
+    <section id="projects" className="py-16 md:py-24 border-t border-border bg-card/20">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
           {/* Section Header */}
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-border/80 pb-6">
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-10 md:mb-16 border-b border-border/80 pb-6">
             <h2 className=" text-sm md:text-base text-muted-foreground ">
               // {language === "en" ? "Selected Works" : "ნამუშევრები"}
             </h2>
@@ -67,7 +67,7 @@ export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy
                       </h4>
                       
                       <div className="h-[60px] mb-4">
-                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                           {project.desc?.join(' ')}
                         </p>
                       </div>
@@ -88,7 +88,7 @@ export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy
                         href={project.companyLink || "https://otardavitashvili.com"}
                         target="_blank"
                         rel="noreferrer"
-                        className={`mt-auto w-full block text-center py-3.5 bg-foreground text-background border border-foreground text-[10px] transition-colors duration-500 ease-in-out ${project.isDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'hover:bg-background hover:text-foreground'}`}
+                        className={`mt-auto w-full block text-center py-3.5 bg-foreground text-background border border-foreground text-xs transition-colors duration-500 ease-in-out ${project.isDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'hover:bg-background hover:text-foreground'}`}
                       >
                         {project.domain || "Visit Site"} ↗
                       </a>

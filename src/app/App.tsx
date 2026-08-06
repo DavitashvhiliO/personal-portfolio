@@ -235,7 +235,16 @@ function ResumeContent() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.04 }
     );
     targets.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+
+    // Dispatch resize to fix Lenis scroll bounds if text height changed
+    const timer = setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 150);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(timer);
+    };
   }, [showContent, language]);
 
   // Map database elements

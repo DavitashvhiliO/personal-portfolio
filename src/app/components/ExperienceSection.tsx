@@ -7,10 +7,10 @@ export function ExperienceSection() {
   const experiences = data?.workExperience || [];
 
   return (
-    <section id="experience" className="py-24 border-t border-border">
+    <section id="experience" className="py-16 md:py-24 border-t border-border">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
           {/* Section Header */}
-          <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-border/80 pb-6">
+          <div className="flex flex-col md:flex-row justify-between items-baseline mb-10 md:mb-16 border-b border-border/80 pb-6">
             <h2 className=" text-sm md:text-base text-muted-foreground ">
               // {language === "en" ? "Career Roadmap" : "კარიერული გზა"}
             </h2>
@@ -34,11 +34,11 @@ export function ExperienceSection() {
                     </div>
                   </div>
                   
-                  <div className="flex flex-wrap items-baseline gap-3 shrink-0">
-                    <span className=" text-[10px] text-muted-foreground">
+                  <div className="flex flex-wrap items-baseline gap-3 shrink-0 mt-2 md:mt-0">
+                    <span className=" text-xs md:text-sm text-muted-foreground">
                       {job.date}
                     </span>
-                    <span className=" text-[9px] text-muted-foreground bg-card border border-border px-1.5 py-0.5">
+                    <span className=" text-[10px] md:text-xs text-muted-foreground bg-card border border-border px-1.5 py-0.5">
                       {job.type}
                     </span>
                   </div>
@@ -55,24 +55,24 @@ export function ExperienceSection() {
                   {/* Custom Buttons */}
                   {job.id === 'job1' && (
                     <div className="flex flex-wrap gap-3 mt-1">
-                      <a href="https://nsdi.gov.ge/ka" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-[10px]   tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://nsdi.gov.ge/ka" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         nsdi.gov.ge ↗
                       </a>
-                      <a href="https://www.napr.gov.ge/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-[10px]   tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://www.napr.gov.ge/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         napr.gov.ge ↗
                       </a>
                     </div>
                   )}
                   {job.id === 'job2' && (
                     <div className="flex flex-wrap gap-3 mt-1">
-                      <a href="https://www.facebook.com/profile.php?id=61576642025771" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-[10px]   tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://www.facebook.com/profile.php?id=61576642025771" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         Dento-Art ↗
                       </a>
                     </div>
                   )}
                   {job.id === 'job3' && (
                     <div className="flex flex-wrap gap-3 mt-1">
-                      <a href="https://www.facebook.com/profile.php?id=61589685841374" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-[10px]   tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://www.facebook.com/profile.php?id=61589685841374" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         DBEF ↗
                       </a>
                     </div>

@@ -26,7 +26,7 @@ export function FooterSection() {
 
   return (
     <>
-      <section id="contact" className="py-24 border-t border-border">
+      <section id="contact" className="py-16 md:py-24 border-t border-border">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12 reveal">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
             {/* Left H2 text (60%) */}

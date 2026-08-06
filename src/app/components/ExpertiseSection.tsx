@@ -9,9 +9,9 @@ export function ExpertiseSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="expertise" className="py-24 border-t border-border bg-card/10">
+    <section id="expertise" className="py-16 md:py-24 border-t border-border bg-card/10">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-10 md:mb-16">
             <div className="lg:col-span-5 flex flex-col gap-4 reveal">
               <h2 className=" text-sm md:text-base text-muted-foreground ">
               // {language === "en" ? "Focus Areas" : "მიმართულებები"}
@@ -26,8 +26,8 @@ export function ExpertiseSection() {
               {/* METRIC CARDS */}
               <div className="flex flex-col gap-6 mt-10">
                 {/* Stat 1 - Experience */}
-                <div className="border border-border p-8 bg-card flex flex-col justify-between hover:border-foreground/40 transition-colors">
-                  <span className="text-sm font-semibold text-foreground/80 mb-6">
+                <div className="border border-border p-6 md:p-8 bg-card flex flex-col justify-between hover:border-foreground/40 transition-colors">
+                  <span className="text-sm md:text-base font-semibold text-foreground/80 mb-6">
                     {language === "en" ? "Professional Experience" : "წლიანი პროფესიონალური გამოცდილება"}
                   </span>
                   <div className="flex items-baseline mt-auto font-bold text-5xl md:text-6xl tracking-tighter text-foreground">
@@ -37,8 +37,8 @@ export function ExpertiseSection() {
                 </div>
 
                 {/* Stat 2 - Projects */}
-                <div className="border border-border p-8 bg-card flex flex-col justify-between hover:border-foreground/40 transition-colors">
-                  <span className="text-sm font-semibold text-foreground/80 mb-6">
+                <div className="border border-border p-6 md:p-8 bg-card flex flex-col justify-between hover:border-foreground/40 transition-colors">
+                  <span className="text-sm md:text-base font-semibold text-foreground/80 mb-6">
                     {language === "en" ? "Successful Projects" : "წარმატებული პროექტი"}
                   </span>
                   <div className="flex items-baseline mt-auto font-bold text-5xl md:text-6xl tracking-tighter text-foreground">
@@ -75,7 +75,7 @@ function ExpertiseAccordion({ list }: { list: any[] }) {
             className={`grid transition-all duration-300 ease-in-out ${openIndex === i ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}
           >
             <div className="overflow-hidden">
-              <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+              <p className="text-muted-foreground text-sm md:text-base leading-relaxed">{item.description}</p>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ export function TestimonialsSection() {
   const t = translations[language];
 
   return (
-    <section id="testimonials" className="py-24 border-t border-border bg-card/20">
+    <section id="testimonials" className="py-16 md:py-24 border-t border-border bg-card/20">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-baseline mb-16 border-b border-border/80 pb-6">
             <h2 className=" text-sm md:text-base text-muted-foreground ">
