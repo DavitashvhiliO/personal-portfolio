@@ -18,7 +18,28 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.startsWith('/ka')) return 'ka';
+      if (path.startsWith('/en')) return 'en';
+      
+      const stored = localStorage.getItem('lang') as Language;
+      if (stored === 'ka' || stored === 'en') return stored;
+    }
+    return 'en';
+  });
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.documentElement.lang = language;
+      localStorage.setItem('lang', language);
+      const newPath = `/${language}`;
+      if (window.location.pathname !== newPath) {
+        window.history.replaceState(null, '', newPath);
+      }
+    }
+  }, [language]);
   const [data, setData] = useState<PortfolioData | null>(null);
   const [isLoadingData, setIsLoadingData] = useState<boolean>(true);
 

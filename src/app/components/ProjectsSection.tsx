@@ -48,11 +48,12 @@ export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy
                       <img 
                         src={project.image || mockupImg} 
                         alt={project.company} 
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                       />
                       {/* Status Badge */}
                       {project.status && (
-                        <span className={`absolute top-3 left-3  text-[9px] px-2 py-1 font-semibold shadow-md ${badgeClass}`}>
+                        <span className={`absolute top-3 left-3 text-xs px-2 py-1 font-semibold shadow-md ${badgeClass}`}>
                           {project.status}
                         </span>
                       )}
@@ -61,10 +62,9 @@ export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy
                     {/* Content Bottom */}
                     <div className="flex flex-col flex-1">
 
-                      
-                      <h4 className=" text-2xl text-foreground font-bold mb-4">
+                      <h3 className=" text-2xl text-foreground font-bold mb-4">
                         {project.company}
-                      </h4>
+                      </h3>
                       
                       <div className="h-[60px] mb-4">
                         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
@@ -75,19 +75,19 @@ export function ProjectsSection({ setSelectedCaseStudy }: { setSelectedCaseStudy
                       {/* Subtle Case Study Link right below bullets */}
                       <button
                         disabled
-                        className="text-left font-bold text-[9px] text-foreground/50 border-b border-foreground/30 transition-colors w-fit mb-8 pb-0.5 inline-flex items-center gap-1.5 cursor-not-allowed group/btn"
+                        aria-disabled="true"
+                        className="text-left font-semibold text-xs text-muted-foreground/60 transition-colors w-fit mb-8 pb-0.5 inline-flex items-center gap-1.5 cursor-not-allowed opacity-60"
                       >
                         <span>
                           {language === "en" ? "Case Study — Coming Soon" : "ქეისის მიმოხილვა — მალე დაემატება"}
                         </span>
-                        <span className="transition-transform">→</span>
                       </button>
 
                       {/* Full-width Live Site Button at the bottom */}
                       <a
                         href={project.companyLink || "https://otardavitashvili.com"}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         className={`mt-auto w-full block text-center py-3.5 bg-foreground text-background border border-foreground text-xs transition-colors duration-500 ease-in-out ${project.isDisabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : 'hover:bg-background hover:text-foreground'}`}
                       >
                         {project.domain || "Visit Site"} ↗

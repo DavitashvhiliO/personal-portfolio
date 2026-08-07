@@ -34,7 +34,7 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
         {/* Nav links (Desktop) */}
         <nav className="hidden lg:flex gap-3 xl:gap-6">
           {links.map(link => (
-            <a key={link.id} href={`#${link.id}`} className="text-[11px] font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+            <a key={link.id} href={`#${link.id}`} className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2 px-3">
               {language === "en" ? link.en : link.ka}
             </a>
           ))}
@@ -45,7 +45,7 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="h-8 px-3 text-[10px] border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
+            className="h-10 px-4 text-xs border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
           >
             {language === "en" ? "KA" : "EN"}
           </button>
@@ -53,7 +53,7 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
           {/* Theme Toggle */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="size-8 border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
+            className="size-10 border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
             aria-label="Toggle monochrome scheme"
           >
             {isDarkMode ? <Sun className="size-4 shrink-0" /> : <Moon className="size-4 shrink-0" />}

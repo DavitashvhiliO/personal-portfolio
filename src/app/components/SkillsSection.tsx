@@ -48,12 +48,12 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {data?.skills?.map((skill, i) => (
                   <div key={i} className="border border-border p-6 bg-card/40 hover:border-foreground/30 transition-colors duration-300">
-                    <h4 className=" text-base font-bold text-foreground border-b border-border/60 pb-2 mb-3">
+                    <h3 className=" text-base font-bold text-foreground border-b border-border/60 pb-2 mb-3">
                       {skill.category}
-                    </h4>
+                    </h3>
                     <div className="flex flex-wrap gap-2">
                       {skill.text.split(", ").map((tag, j) => (
-                        <span key={j} className="group text-[11px] md:text-xs border border-border/80 px-2.5 py-1.5 bg-background text-foreground hover:bg-foreground hover:text-background transition-colors flex items-center gap-1.5">
+                        <span key={j} className="group text-xs md:text-xs border border-border/80 px-2.5 py-1.5 bg-background text-foreground hover:bg-foreground hover:text-background transition-colors flex items-center gap-1.5">
                           <span className="w-1.5 h-1.5 bg-foreground/40 group-hover:bg-background rounded-full shrink-0 transition-colors"></span>
                           {tag}
                         </span>
@@ -97,7 +97,7 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
                   { name: 'Google Workspace', icon: GoogleWorkspaceIcon }
                 ].map((tool, i) => (
                   <div key={i} className="group text-sm tracking-wider border border-border/30 hover:border-foreground/40 px-4 py-2 bg-background text-foreground transition-colors flex items-center gap-2.5 w-fit cursor-none ">
-                    <img src={tool.icon} alt={tool.name} className={`w-5 h-5 object-contain ${(tool.name === 'Bolt.new' || tool.name === 'Framer') && isDarkMode ? 'invert' : ''}`} />
+                    <img src={tool.icon} alt={tool.name} loading="lazy" className={`w-5 h-5 object-contain ${(tool.name === 'Bolt.new' || tool.name === 'Framer') && isDarkMode ? 'invert' : ''}`} />
                     <span>{tool.name}</span>
                   </div>
                 ))}

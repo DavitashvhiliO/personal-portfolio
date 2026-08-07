@@ -65,13 +65,19 @@ function ExpertiseAccordion({ list }: { list: any[] }) {
       {list.map((item, i) => (
         <div key={i} className="border-b border-border/40 pb-4">
           <button 
+            id={`accordion-button-${i}`}
+            aria-expanded={openIndex === i}
+            aria-controls={`accordion-panel-${i}`}
             className="w-full flex justify-between items-center text-left py-2 hover:text-foreground transition-colors"
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
           >
             <span className="text-xl md:text-2xl font-semibold text-foreground">{item.title}</span>
-            <span className="text-2xl">{openIndex === i ? '−' : '+'}</span>
+            <span className="text-2xl" aria-hidden="true">{openIndex === i ? '−' : '+'}</span>
           </button>
           <div 
+            id={`accordion-panel-${i}`}
+            role="region"
+            aria-labelledby={`accordion-button-${i}`}
             className={`grid transition-all duration-300 ease-in-out ${openIndex === i ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}
           >
             <div className="overflow-hidden">

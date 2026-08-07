@@ -27,9 +27,9 @@ export function EducationSection() {
                     <span className="absolute -left-[31px] top-1.5 size-2.5 rounded-full border border-foreground bg-background group-hover:bg-foreground transition-colors duration-300" />
                     
                     <div className="flex flex-col gap-1 hover:pl-2 transition-all duration-300">
-                      <h4 className=" text-sm md:text-base font-bold text-foreground mt-2">
+                      <h3 className=" text-sm md:text-base font-bold text-foreground mt-2">
                         {item.degree}
-                      </h4>
+                      </h3>
                       <span className="text-xs md:text-sm text-muted-foreground mt-1">
                         {item.institution}
                       </span>
@@ -64,7 +64,7 @@ export function EducationSection() {
                         <span className=" text-sm font-bold text-foreground">
                           {lang.name}
                         </span>
-                        <span className=" text-[10px] md:text-xs text-muted-foreground">
+                        <span className=" text-xs md:text-sm text-muted-foreground">
                           {lang.level}
                         </span>
                       </div>

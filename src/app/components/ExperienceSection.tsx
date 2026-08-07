@@ -25,9 +25,9 @@ export function ExperienceSection() {
                 {/* Meta Header */}
                 <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-2">
                   <div>
-                    <h4 className=" text-xl font-bold text-foreground">
+                    <h3 className=" text-xl font-bold text-foreground">
                       {job.title}
-                    </h4>
+                    </h3>
                     <div className="text-sm text-foreground/80  mt-1 flex flex-wrap gap-1">
                       <span>{job.company}</span>
                       {job.jobInLinkText && <span className="text-muted-foreground">({job.jobInLinkText})</span>}
@@ -38,7 +38,7 @@ export function ExperienceSection() {
                     <span className=" text-xs md:text-sm text-muted-foreground">
                       {job.date}
                     </span>
-                    <span className=" text-[10px] md:text-xs text-muted-foreground bg-card border border-border px-1.5 py-0.5">
+                    <span className=" text-xs md:text-xs text-muted-foreground bg-card border border-border px-1.5 py-0.5">
                       {job.type}
                     </span>
                   </div>
@@ -55,24 +55,24 @@ export function ExperienceSection() {
                   {/* Custom Buttons */}
                   {job.id === 'job1' && (
                     <div className="flex flex-wrap gap-3 mt-1">
-                      <a href="https://nsdi.gov.ge/ka" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://nsdi.gov.ge/ka" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         nsdi.gov.ge ↗
                       </a>
-                      <a href="https://www.napr.gov.ge/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://www.napr.gov.ge/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         napr.gov.ge ↗
                       </a>
                     </div>
                   )}
                   {job.id === 'job2' && (
                     <div className="flex flex-wrap gap-3 mt-1">
-                      <a href="https://www.facebook.com/profile.php?id=61576642025771" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://www.facebook.com/profile.php?id=61576642025771" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         Dento-Art ↗
                       </a>
                     </div>
                   )}
                   {job.id === 'job3' && (
                     <div className="flex flex-wrap gap-3 mt-1">
-                      <a href="https://www.facebook.com/profile.php?id=61589685841374" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
+                      <a href="https://www.facebook.com/profile.php?id=61589685841374" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-4 py-2 text-xs md:text-sm tracking-widest border border-border/80 hover:bg-foreground hover:text-background transition-colors text-foreground">
                         DBEF ↗
                       </a>
                     </div>

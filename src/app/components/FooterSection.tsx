@@ -45,7 +45,7 @@ export function FooterSection() {
 
               {/* Availability dates */}
               <div className="flex flex-col gap-2 pt-6">
-                <span className=" text-[10px] text-muted-foreground">
+                <span className=" text-xs text-muted-foreground">
                   {language === "en" ? "Availability" : "ხელმისაწვდომი სტატუსი"}
                 </span>
                 <span className="text-sm font-semibold">
@@ -75,7 +75,7 @@ export function FooterSection() {
                 
                 <button
                   onClick={handleCopyEmail}
-                  className="w-full flex items-center justify-center gap-3 py-3 border border-border  text-[10px] hover:border-foreground transition-colors bg-background"
+                  className="w-full flex items-center justify-center gap-3 py-3 border border-border text-xs hover:border-foreground transition-colors bg-background"
                 >
                   {copiedEmail ? <Check className="size-4 text-green-500" /> : <Copy className="size-4" />}
                   <span>{copiedEmail ? (language === "en" ? "Copied" : "დაკოპირებულია") : (language === "en" ? "Copy Email Address" : "დააკოპირე")}</span>
@@ -89,15 +89,15 @@ export function FooterSection() {
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
           {/* Big Display Name */}
           <div className="w-full text-center border-b border-border/60 pb-8 reveal">
-            <h1 className=" font-bold text-6xl md:text-[8vw] tracking-tighter text-foreground leading-none">
+            <h2 className=" font-bold text-6xl md:text-[8vw] tracking-tighter text-foreground leading-none">
               {t.name}
-            </h1>
+            </h2>
           </div>
 
           {/* Footer Contacts */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left py-4 reveal">
             <div className="flex flex-col gap-2">
-              <span className=" text-[10px] text-muted-foreground">
+              <span className=" text-xs text-muted-foreground">
                 {language === "en" ? "Direct Email" : "ელ-ფოსტა"}
               </span>
               <button
@@ -107,11 +107,11 @@ export function FooterSection() {
                 <span className="truncate">davitashviliotari@gmail.com</span>
                 {copiedEmail ? <Check className="size-4 text-green-500 shrink-0 ml-2" /> : <Copy className="size-4 shrink-0 opacity-40 group-hover:opacity-80 transition-opacity ml-2" />}
               </button>
-              {copiedEmail && <span className=" text-[9px] text-green-500">{t.emailCopied}</span>}
+              {copiedEmail && <span className=" text-xs text-green-500">{t.emailCopied}</span>}
             </div>
 
             <div className="flex flex-col gap-2">
-              <span className=" text-[10px] text-muted-foreground">
+              <span className=" text-xs text-muted-foreground">
                 {language === "en" ? "Location" : "ლოკაცია"}
               </span>
               <div className="border border-border px-4 py-3 bg-card  text-xs text-foreground flex items-center justify-between">
@@ -123,11 +123,11 @@ export function FooterSection() {
 
           {/* Social Links List */}
           <div className="flex flex-wrap justify-between items-center gap-6 border-t border-border/60 pt-8 reveal">
-            <div className="flex flex-wrap gap-6 text-[10px]  text-muted-foreground">
+            <div className="flex flex-wrap gap-6 text-xs text-muted-foreground">
               <a
                 href="https://dribbble.com/DavitashviliO"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors"
               >
                 Dribbble
@@ -135,7 +135,7 @@ export function FooterSection() {
               <a
                 href="https://www.behance.net/DavitashviliO"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors"
               >
                 Behance
@@ -143,13 +143,13 @@ export function FooterSection() {
               <a
                 href="https://linkedin.com"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="hover:text-foreground transition-colors"
               >
                 LinkedIn
               </a>
             </div>
-            <span className=" text-[10px] text-muted-foreground">
+            <span className=" text-xs text-muted-foreground">
               © 2026 Otar Davitashvili — All Rights Reserved
             </span>
           </div>

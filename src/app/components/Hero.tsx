@@ -67,12 +67,16 @@ export function Hero({ isDarkMode = true }: HeroProps) {
               <div className="pt-6 border-t border-border/60 mt-4">
                 <div className="relative inline-block w-full sm:w-auto z-50">
                   <button
+                    id="resume-dropdown-button"
+                    aria-expanded={isDropdownOpen}
+                    aria-haspopup="true"
+                    aria-controls="resume-dropdown-menu"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="inline-flex items-center gap-2.5 border-2 border-foreground px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-all duration-300 w-full justify-center"
                   >
-                    <Download className="size-4 shrink-0" />
+                    <Download className="size-4 shrink-0" aria-hidden="true" />
                     <span>{language === "en" ? "Download Resume" : "რეზიუმეს გადმოწერა"}</span>
-                    <ChevronDown className={`size-4 shrink-0 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`size-4 shrink-0 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
                   </button>
 
                   {isDropdownOpen && (
@@ -80,28 +84,38 @@ export function Hero({ isDarkMode = true }: HeroProps) {
                       <div 
                         className="fixed inset-0 z-40"
                         onClick={() => setIsDropdownOpen(false)}
+                        aria-hidden="true"
                       />
-                      <div className="absolute left-0 bottom-full mb-2 lg:bottom-auto lg:top-full lg:mt-2 w-full bg-white dark:bg-black border border-border shadow-2xl z-[100] flex flex-col p-1 animate-in fade-in lg:slide-in-from-top-2 slide-in-from-bottom-2">
+                      <div 
+                        id="resume-dropdown-menu"
+                        role="menu"
+                        aria-labelledby="resume-dropdown-button"
+                        className="absolute left-0 bottom-full mb-2 lg:bottom-auto lg:top-full lg:mt-2 w-full bg-white dark:bg-black border border-border shadow-2xl z-[100] flex flex-col p-1 animate-in fade-in lg:slide-in-from-top-2 slide-in-from-bottom-2"
+                      >
                         <a 
                           href={resumeEnDark} download onClick={() => setIsDropdownOpen(false)}
+                          role="menuitem"
                           className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
                         >
                           {language === "en" ? "English - Dark Theme" : "ინგლისური (მუქი თემა)"}
                         </a>
                         <a 
                           href={resumeEnLight} download onClick={() => setIsDropdownOpen(false)}
+                          role="menuitem"
                           className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
                         >
                           {language === "en" ? "English - Light Theme" : "ინგლისური (ღია თემა)"}
                         </a>
                         <a 
                           href={resumeKaDark} download onClick={() => setIsDropdownOpen(false)}
+                          role="menuitem"
                           className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
                         >
                           {language === "en" ? "Georgian - Dark Theme" : "ქართული (მუქი თემა)"}
                         </a>
                         <a 
                           href={resumeKaLight} download onClick={() => setIsDropdownOpen(false)}
+                          role="menuitem"
                           className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
                         >
                           {language === "en" ? "Georgian - Light Theme" : "ქართული (ღია თემა)"}
@@ -120,6 +134,8 @@ export function Hero({ isDarkMode = true }: HeroProps) {
               >
                 <img
                   alt={t.name}
+                  loading="eager"
+                  fetchPriority="high"
                   className="w-full h-full object-cover object-top hover-zoom-img transition-all duration-700 grayscale-0 lg:grayscale lg:group-hover:grayscale-0"
                   src={profileImage}
                 />

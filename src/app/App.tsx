@@ -83,10 +83,19 @@ function ResumeContent() {
     }
     return true;
   });
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window !== "undefined") return !sessionStorage.getItem("visited");
+    return true;
+  });
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<WorkExperience | FeaturedProject | null>(null);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [showContent, setShowContent] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("visited")) return 100;
+    return 0;
+  });
+  const [showContent, setShowContent] = useState(() => {
+    if (typeof window !== "undefined") return !!sessionStorage.getItem("visited");
+    return false;
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorVariant, setCursorVariant] = useState<"default" | "interactive">("default");
@@ -140,19 +149,22 @@ function ResumeContent() {
     };
   }, []);
 
-  // Hide loader after 1.5s
+  // Hide loader after 400ms max
   useEffect(() => {
+    if (!isLoading) return;
     const timer = setTimeout(() => {
       setIsLoading(false);
       setShowContent(true);
-    }, 1500);
+      sessionStorage.setItem("visited", "true");
+    }, 400);
     return () => clearTimeout(timer);
-  }, []);
+  }, [isLoading]);
 
   // Update loading progress
   useEffect(() => {
-    const duration = 1500;
-    const steps = 100;
+    if (!isLoading) return;
+    const duration = 400;
+    const steps = 20;
     const interval = duration / steps;
     const progressInterval = setInterval(() => {
       setLoadingProgress((prev) => {
@@ -160,11 +172,11 @@ function ResumeContent() {
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 1;
+        return prev + (100 / steps);
       });
     }, interval);
     return () => clearInterval(progressInterval);
-  }, []);
+  }, [isLoading]);
 
   // Toggle local class
   useEffect(() => {
@@ -220,7 +232,7 @@ function ResumeContent() {
 
   // Reveal scroll observer
   useEffect(() => {
-    if (!showContent) return;
+    if (!showContent || isLoadingData) return;
     const targets = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver(
       (entries) => {
@@ -245,7 +257,7 @@ function ResumeContent() {
       io.disconnect();
       clearTimeout(timer);
     };
-  }, [showContent, language]);
+  }, [showContent, language, isLoadingData]);
 
   // Map database elements
   const experiences = data?.workExperience || [];
@@ -255,8 +267,6 @@ function ResumeContent() {
 
   return (
     <div className={`min-h-screen flex flex-col overflow-x-hidden transition-colors duration-500 ${isDarkMode ? "bg-background text-foreground" : "bg-white text-black"}`}>
-      {/* Hide cursor styles */}
-      <style>{`@media (hover: hover) and (pointer: fine) { body, a, button, [role="button"], input, textarea, select { cursor: none !important; } }`}</style>
       
       {/* Custom Cursor */}
       <div
@@ -308,14 +318,16 @@ function ResumeContent() {
 
 
       {/* HERO & ABOUT ME SECTION */}
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+        <Hero isDarkMode={isDarkMode} />
+        <ProjectsSection setSelectedCaseStudy={setSelectedCaseStudy} />
+        <ExperienceSection />
+        <SkillsSection isDarkMode={isDarkMode} />
+        <EducationSection />
+        <ExpertiseSection />
+        {/* <TestimonialsSection /> */}
+      </main>
       
-      <Hero isDarkMode={isDarkMode} />
-      <ProjectsSection setSelectedCaseStudy={setSelectedCaseStudy} />
-      <ExperienceSection />
-      <SkillsSection isDarkMode={isDarkMode} />
-      <EducationSection />
-      <ExpertiseSection />
-      {/* <TestimonialsSection /> */}
       <FooterSection />
 
 
