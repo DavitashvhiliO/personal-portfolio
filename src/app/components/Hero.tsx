@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Download, ArrowDown } from "lucide-react";
+import { Download, ArrowDown, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../translations/translations";
 import { m, Marquee } from "../utils";
@@ -22,6 +22,7 @@ export function Hero({ isDarkMode = true }: HeroProps) {
   const t = translations[language as keyof typeof translations];
   const [isFading, setIsFading] = useState(false);
   const [index, setIndex] = useState(0);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const list = [
     { name: language === "en" ? "Otar Davitashvili" : m("ოთარ დავითაშვილი"), role: language === "en" ? "UI/UX Designer" : "UI/UX დიზაინერი" },
@@ -40,14 +41,6 @@ export function Hero({ isDarkMode = true }: HeroProps) {
     }, 2500);
     return () => clearInterval(timer);
   }, [list.length]);
-
-  // Determine correct PDF to download
-  let resumePdfUrl = resumeEnDark;
-  if (language === 'ka') {
-    resumePdfUrl = isDarkMode ? resumeKaDark : resumeKaLight;
-  } else {
-    resumePdfUrl = isDarkMode ? resumeEnDark : resumeEnLight;
-  }
 
   return (
     <section id="hero" className="min-h-screen lg:h-screen pt-24 pb-4 flex flex-col justify-between relative overflow-hidden bg-background">
@@ -71,15 +64,50 @@ export function Hero({ isDarkMode = true }: HeroProps) {
               </p>
 
               {/* CV Download CTA */}
-              <div className="pt-6 border-t border-border/60 mt-4">
-                <a
-                  href={resumePdfUrl}
-                  download
+              <div className="pt-6 border-t border-border/60 mt-4 relative">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                   className="inline-flex items-center gap-2.5 border-2 border-foreground px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-all duration-300 w-full sm:w-auto justify-center"
                 >
                   <Download className="size-4 shrink-0" />
                   <span>{language === "en" ? "Download Resume" : "რეზიუმეს გადმოწერა"}</span>
-                </a>
+                  <ChevronDown className={`size-4 shrink-0 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {isDropdownOpen && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-40"
+                      onClick={() => setIsDropdownOpen(false)}
+                    />
+                    <div className="absolute left-0 mt-2 w-full sm:w-[260px] bg-background border border-border shadow-lg z-50 flex flex-col p-1 animate-in fade-in slide-in-from-top-2">
+                      <a 
+                        href={resumeEnDark} download onClick={() => setIsDropdownOpen(false)}
+                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                      >
+                        {language === "en" ? "English - Dark Theme" : "ინგლისური (მუქი თემა)"}
+                      </a>
+                      <a 
+                        href={resumeEnLight} download onClick={() => setIsDropdownOpen(false)}
+                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                      >
+                        {language === "en" ? "English - Light Theme" : "ინგლისური (ღია თემა)"}
+                      </a>
+                      <a 
+                        href={resumeKaDark} download onClick={() => setIsDropdownOpen(false)}
+                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                      >
+                        {language === "en" ? "Georgian - Dark Theme" : "ქართული (მუქი თემა)"}
+                      </a>
+                      <a 
+                        href={resumeKaLight} download onClick={() => setIsDropdownOpen(false)}
+                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                      >
+                        {language === "en" ? "Georgian - Light Theme" : "ქართული (ღია თემა)"}
+                      </a>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
 
