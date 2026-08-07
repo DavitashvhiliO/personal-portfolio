@@ -254,7 +254,7 @@ function ResumeContent() {
   const selectedList = projects.slice(1);
 
   return (
-    <div className={`min-h-screen flex flex-col  transition-colors duration-500 ${isDarkMode ? "bg-background text-foreground" : "bg-white text-black"}`}>
+    <div className={`min-h-screen flex flex-col overflow-x-hidden transition-colors duration-500 ${isDarkMode ? "bg-background text-foreground" : "bg-white text-black"}`}>
       {/* Hide cursor styles */}
       <style>{`@media (hover: hover) and (pointer: fine) { body, a, button, [role="button"], input, textarea, select { cursor: none !important; } }`}</style>
       
