@@ -28,10 +28,10 @@ export function ExpertiseSection() {
                 {/* Stat 1 - Experience */}
                 <div className="border border-border p-6 md:p-8 bg-card flex flex-col justify-between hover:border-foreground/40 transition-colors">
                   <span className="text-sm md:text-base font-semibold text-foreground/80 mb-6">
-                    {language === "en" ? "Professional Experience" : "წლიანი პროფესიონალური გამოცდილება"}
+                    {language === "en" ? "Professional Experience" : "პროფესიონალური გამოცდილება"}
                   </span>
                   <div className="flex items-baseline mt-auto font-bold text-5xl md:text-6xl tracking-tighter text-foreground">
-                    <Counter targetValue={4} />
+                    <Counter targetValue={6} />
                     <span>+</span>
                   </div>
                 </div>
