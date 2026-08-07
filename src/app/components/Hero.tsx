@@ -44,7 +44,7 @@ export function Hero({ isDarkMode = true }: HeroProps) {
 
   return (
     <section id="hero" className="min-h-screen lg:h-screen pt-24 pb-4 flex flex-col justify-between relative overflow-hidden bg-background">
-        <div id="about" className="w-full max-w-7xl mx-auto px-6 md:px-12 flex-1 flex items-center justify-center py-4">
+        <div id="about" className="w-full max-w-7xl mx-auto px-6 md:px-12 flex-1 flex items-center justify-center py-4 relative z-10">
           <div className="flex flex-col-reverse lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-start lg:items-center w-full">
             
             {/* Left Bio details (60% on Desktop, bottom on Mobile) */}
