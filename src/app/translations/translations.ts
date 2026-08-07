@@ -224,7 +224,7 @@ export const translations: Record<Language, Translation> = {
     jobTitle5: 'Visual Design Specialist',
     jobDate5: 'Jan 2015 — Feb 2020',
     jobCompany5: 'Digital Print Center',
-    jobType5: 'Full-time / Part-time',
+    jobType5: 'Full-time',
     jobDesc5: [
       'Produced diverse visual assets and managed complex pre-press workflows for large-scale physical print collateral.'
     ],
@@ -420,7 +420,7 @@ export const translations: Record<Language, Translation> = {
     jobCompanyLink1Text: '',
     jobIn1: '—',
     jobInLink1: 'საჯარო რეესტრის ეროვნული სააგენტო',
-    jobType1: 'Full-time',
+    jobType1: 'სრული განაკვეთი',
     jobDesc1: [
       'შევქმენი ეროვნული სივრცითი მონაცემების ინფრასტრუქტურის პორტალისა (nsdi.gov.ge) და დისტანციური რეგისტრაციის GovTech (გონიერი კონტრაქტი) პლატფორმების დიზაინი.',
       'ვიმუშავე სააგენტოს მთავარი პორტალის სრულ UI/UX რედიზაინზე (napr.gov.ge), პროცესი ახლაც მიმდინარეობს.',
@@ -432,7 +432,7 @@ export const translations: Record<Language, Translation> = {
     jobTitle2: 'კონტენტ მენეჯერი & Growth ედვერთაიზერი',
     jobDate2: 'ნოემბერი 2024 — დღემდე',
     jobCompany2: 'სტომატოლოგიური კლინიკა Dento-Art',
-    jobType2: 'Retainer',
+    jobType2: 'ყოველთვიური კონტრაქტი',
     jobDesc2: [
       '$22K+ სარეკლამო ბიუჯეტით დაგენერირებული 23,000 ლიდი ($0.95-ზე ნაკლები CPA-ით) და 12.5M+ Impression-ით ($1.75 CPM).'
     ],
@@ -441,7 +441,7 @@ export const translations: Record<Language, Translation> = {
     jobTitle3: 'UI/UX დიზაინერი & კონტენტ მენეჯერი',
     jobDate3: 'ნოემბერი 2023 — დღემდე',
     jobCompany3: 'დავით ბეჟუაშვილის განათლების ფონდი (DBEF)',
-    jobType3: 'Retainer',
+    jobType3: 'ყოველთვიური კონტრაქტი',
     jobDesc3: [
       'ვიმუშავე პლატფორმის რედიზაინზე, ამჟამად ვმუშაობ სოციალური მედიის არხების კონტენტზე.'
     ],
@@ -450,7 +450,7 @@ export const translations: Record<Language, Translation> = {
     jobTitle4: 'UI/UX დიზაინერი',
     jobDate4: 'მაისი 2022 — აგვისტო 2023',
     jobCompany4: 'Hypercubic Innovation Center',
-    jobType4: 'Full-time',
+    jobType4: 'სრული განაკვეთი',
     jobDesc4: [
       'ვმუშაობდი CMCX (Catena) ტოკენის ეკოსისტემაში შემავალი პლატფორმების ადაპტიურ ვერსიებსა და დიზაინ კომპონენტებზე.'
     ],
@@ -459,7 +459,7 @@ export const translations: Record<Language, Translation> = {
     jobTitle5: 'ვიზუალური დიზაინის სპეციალისტი',
     jobDate5: 'იანვარი 2015 — თებერვალი 2020',
     jobCompany5: 'Digital Print Center',
-    jobType5: 'Full-time / Part-time',
+    jobType5: 'სრული გრაფიკი',
     jobDesc5: [
       'ვმუშაობდი სხვადასხვა მიმართულების ვიზუალურ მასალებსა და Pre-press პროცესებზე.'
     ],
