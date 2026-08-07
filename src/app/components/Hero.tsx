@@ -80,7 +80,7 @@ export function Hero({ isDarkMode = true }: HeroProps) {
                       className="fixed inset-0 z-40"
                       onClick={() => setIsDropdownOpen(false)}
                     />
-                    <div className="absolute left-0 mt-2 w-full sm:w-[260px] bg-background border border-border shadow-lg z-50 flex flex-col p-1 animate-in fade-in slide-in-from-top-2">
+                    <div className="absolute left-0 mt-2 w-full sm:w-[260px] bg-white dark:bg-black border border-border shadow-2xl z-[100] flex flex-col p-1 animate-in fade-in slide-in-from-top-2">
                       <a 
                         href={resumeEnDark} download onClick={() => setIsDropdownOpen(false)}
                         className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
