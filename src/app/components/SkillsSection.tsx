@@ -97,7 +97,7 @@ export function SkillsSection({ isDarkMode }: { isDarkMode: boolean }) {
                   { name: 'Google Workspace', icon: GoogleWorkspaceIcon }
                 ].map((tool, i) => (
                   <div key={i} className="group text-sm tracking-wider border border-border/30 hover:border-foreground/40 px-4 py-2 bg-background text-foreground transition-colors flex items-center gap-2.5 w-fit cursor-none ">
-                    <img src={tool.icon} alt={tool.name} loading="lazy" className={`w-5 h-5 object-contain ${(tool.name === 'Bolt.new' || tool.name === 'Framer') && isDarkMode ? 'invert' : ''}`} />
+                    <img src={tool.icon} alt="" aria-hidden="true" loading="lazy" className={`w-5 h-5 object-contain ${(tool.name === 'Bolt.new' || tool.name === 'Framer') && isDarkMode ? 'invert' : ''}`} />
                     <span>{tool.name}</span>
                   </div>
                 ))}

@@ -38,6 +38,31 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       if (window.location.pathname !== newPath) {
         window.history.replaceState(null, '', newPath);
       }
+
+      // Localize SEO Metadata
+      const t = translations[language];
+      const titleStr = `${t.name} - Portfolio`;
+      // Use tagline or bio for description. Tagline is shorter and better suited for SEO.
+      const descStr = t.tagline || t.bio;
+      
+      document.title = titleStr;
+      
+      const updateMeta = (selector: string, content: string) => {
+        const el = document.querySelector(selector);
+        if (el) el.setAttribute('content', content);
+      };
+      
+      updateMeta('meta[name="title"]', titleStr);
+      updateMeta('meta[name="description"]', descStr);
+      updateMeta('meta[property="og:title"]', titleStr);
+      updateMeta('meta[property="og:description"]', descStr);
+      updateMeta('meta[property="twitter:title"]', titleStr);
+      updateMeta('meta[property="twitter:description"]', descStr);
+      
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', `https://otardavitashvili.com${newPath}`);
+      }
     }
   }, [language]);
   const [data, setData] = useState<PortfolioData | null>(null);

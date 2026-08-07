@@ -34,7 +34,7 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
         {/* Nav links (Desktop) */}
         <nav className="hidden lg:flex gap-3 xl:gap-6">
           {links.map(link => (
-            <a key={link.id} href={`#${link.id}`} className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap py-2 px-3">
+            <a key={link.id} href={`#${link.id}`} className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-3">
               {language === "en" ? link.en : link.ka}
             </a>
           ))}
@@ -45,7 +45,7 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="h-10 px-4 text-xs border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
+            className="min-h-[44px] min-w-[44px] px-4 text-xs border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
           >
             {language === "en" ? "KA" : "EN"}
           </button>
@@ -53,10 +53,10 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
           {/* Theme Toggle */}
           <button
             onClick={() => setIsDarkMode(!isDarkMode)}
-            className="size-10 border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
+            className="size-11 border border-border hover:bg-foreground hover:text-background transition-colors flex items-center justify-center shrink-0"
             aria-label="Toggle monochrome scheme"
           >
-            {isDarkMode ? <Sun className="size-4 shrink-0" /> : <Moon className="size-4 shrink-0" />}
+            {isDarkMode ? <Sun className="size-4 shrink-0" aria-hidden="true" /> : <Moon className="size-4 shrink-0" aria-hidden="true" />}
           </button>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function Header({ isDarkMode, setIsDarkMode, isMobileMenuOpen, setIsMobil
           className="pointer-events-auto size-14 rounded-full bg-foreground text-background shadow-lg shadow-foreground/20 flex items-center justify-center transition-transform active:scale-95"
           aria-label="Toggle mobile menu"
         >
-          {isMobileMenuOpen ? <X className="size-6 shrink-0" /> : <Menu className="size-6 shrink-0" />}
+          {isMobileMenuOpen ? <X className="size-6 shrink-0" aria-hidden="true" /> : <Menu className="size-6 shrink-0" aria-hidden="true" />}
         </button>
       </div>
     </header>

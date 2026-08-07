@@ -180,7 +180,7 @@ export function Hero({ isDarkMode = true }: HeroProps) {
               className="inline-flex items-center gap-2.5 text-foreground/70 hover:text-foreground hover:underline transition-all  text-xs"
             >
               <span>{language === "en" ? "Scroll to Explore" : "ჩამოსქროლე"}</span>
-              <ArrowDown className="size-4 animate-bounce text-foreground/80" />
+              <ArrowDown className="size-4 animate-bounce text-foreground/80" aria-hidden="true" />
             </a>
           </div>
         </div>

@@ -77,7 +77,7 @@ export function FooterSection() {
                   onClick={handleCopyEmail}
                   className="w-full flex items-center justify-center gap-3 py-3 border border-border text-xs hover:border-foreground transition-colors bg-background"
                 >
-                  {copiedEmail ? <Check className="size-4 text-green-500" /> : <Copy className="size-4" />}
+                  {copiedEmail ? <Check className="size-4 text-green-500" aria-hidden="true" /> : <Copy className="size-4" aria-hidden="true" />}
                   <span>{copiedEmail ? (language === "en" ? "Copied" : "დაკოპირებულია") : (language === "en" ? "Copy Email Address" : "დააკოპირე")}</span>
                 </button>
               </div>
@@ -105,7 +105,7 @@ export function FooterSection() {
                 className="group flex items-center justify-between border border-border px-4 py-3 bg-card  text-xs text-foreground hover:border-foreground/50 transition-colors text-left"
               >
                 <span className="truncate">davitashviliotari@gmail.com</span>
-                {copiedEmail ? <Check className="size-4 text-green-500 shrink-0 ml-2" /> : <Copy className="size-4 shrink-0 opacity-40 group-hover:opacity-80 transition-opacity ml-2" />}
+                {copiedEmail ? <Check className="size-4 text-green-500 shrink-0 ml-2" aria-hidden="true" /> : <Copy className="size-4 shrink-0 opacity-40 group-hover:opacity-80 transition-opacity ml-2" aria-hidden="true" />}
               </button>
               {copiedEmail && <span className=" text-xs text-green-500">{t.emailCopied}</span>}
             </div>
@@ -116,7 +116,7 @@ export function FooterSection() {
               </span>
               <div className="border border-border px-4 py-3 bg-card  text-xs text-foreground flex items-center justify-between">
                 <span>{language === "en" ? "Tbilisi, Georgia" : "თბილისი, საქართველო"}</span>
-                <MapPin className="size-4 shrink-0 opacity-40" />
+                <MapPin className="size-4 shrink-0 opacity-40" aria-hidden="true" />
               </div>
             </div>
           </div>

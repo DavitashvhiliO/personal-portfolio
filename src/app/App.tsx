@@ -99,6 +99,21 @@ function ResumeContent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorVariant, setCursorVariant] = useState<"default" | "interactive">("default");
+  
+  const [reduceMotion, setReduceMotion] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const handler = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
@@ -268,33 +283,45 @@ function ResumeContent() {
   return (
     <div className={`min-h-screen flex flex-col overflow-x-hidden transition-colors duration-500 ${isDarkMode ? "bg-background text-foreground" : "bg-white text-black"}`}>
       
+      {/* Skip to Main Content Link */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[300] focus:px-6 focus:py-3 focus:bg-foreground focus:text-background top-0 left-0 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-foreground transition-all rounded-br-lg"
+      >
+        {language === "en" ? "Skip to main content" : "მთავარ კონტენტზე გადასვლა"}
+      </a>
+
       {/* Custom Cursor */}
-      <div
-        aria-hidden="true"
-        className="fixed pointer-events-none z-[200] rounded-full hidden md:block transition-[width,height,background-color,border-color] duration-300 ease-out"
-        style={{
-          left: cursorPos.x,
-          top: cursorPos.y,
-          width: cursorVariant === "interactive" ? 44 : 20,
-          height: cursorVariant === "interactive" ? 44 : 20,
-          transform: "translate(-50%, -50%)",
-          border: isDarkMode ? "1px solid rgba(255, 255, 255, 0.75)" : "1px solid rgba(0, 0, 0, 0.75)",
-          background: cursorVariant === "interactive" ? (isDarkMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.06)") : "transparent",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="fixed pointer-events-none z-[201] rounded-full hidden md:block transition-opacity duration-200"
-        style={{
-          left: cursorPos.x,
-          top: cursorPos.y,
-          width: 4,
-          height: 4,
-          transform: "translate(-50%, -50%)",
-          background: isDarkMode ? "#ffffff" : "#000000",
-          opacity: cursorVariant === "interactive" ? 0 : 1,
-        }}
-      />
+      {!reduceMotion && (
+        <>
+          <div
+            aria-hidden="true"
+            className="fixed pointer-events-none z-[200] rounded-full hidden md:block transition-[width,height,background-color,border-color] duration-300 ease-out"
+            style={{
+              left: cursorPos.x,
+              top: cursorPos.y,
+              width: cursorVariant === "interactive" ? 44 : 20,
+              height: cursorVariant === "interactive" ? 44 : 20,
+              transform: "translate(-50%, -50%)",
+              border: isDarkMode ? "1px solid rgba(255, 255, 255, 0.75)" : "1px solid rgba(0, 0, 0, 0.75)",
+              background: cursorVariant === "interactive" ? (isDarkMode ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.06)") : "transparent",
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="fixed pointer-events-none z-[201] rounded-full hidden md:block transition-opacity duration-200"
+            style={{
+              left: cursorPos.x,
+              top: cursorPos.y,
+              width: 4,
+              height: 4,
+              transform: "translate(-50%, -50%)",
+              background: isDarkMode ? "#ffffff" : "#000000",
+              opacity: cursorVariant === "interactive" ? 0 : 1,
+            }}
+          />
+        </>
+      )}
 
       {/* Loading Screen */}
       {(isLoading || isLoadingData) && (
