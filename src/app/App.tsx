@@ -309,7 +309,7 @@ function ResumeContent() {
 
       {/* HERO & ABOUT ME SECTION */}
       
-      <Hero />
+      <Hero isDarkMode={isDarkMode} />
       <ProjectsSection setSelectedCaseStudy={setSelectedCaseStudy} />
       <ExperienceSection />
       <SkillsSection isDarkMode={isDarkMode} />
