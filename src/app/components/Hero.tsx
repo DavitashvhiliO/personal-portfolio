@@ -64,50 +64,52 @@ export function Hero({ isDarkMode = true }: HeroProps) {
               </p>
 
               {/* CV Download CTA */}
-              <div className="pt-6 border-t border-border/60 mt-4 relative">
-                <button
-                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="inline-flex items-center gap-2.5 border-2 border-foreground px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-all duration-300 w-full sm:w-auto justify-center"
-                >
-                  <Download className="size-4 shrink-0" />
-                  <span>{language === "en" ? "Download Resume" : "რეზიუმეს გადმოწერა"}</span>
-                  <ChevronDown className={`size-4 shrink-0 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
+              <div className="pt-6 border-t border-border/60 mt-4">
+                <div className="relative inline-block w-full sm:w-auto z-50">
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="inline-flex items-center gap-2.5 border-2 border-foreground px-5 py-3 text-sm hover:bg-foreground hover:text-background transition-all duration-300 w-full justify-center"
+                  >
+                    <Download className="size-4 shrink-0" />
+                    <span>{language === "en" ? "Download Resume" : "რეზიუმეს გადმოწერა"}</span>
+                    <ChevronDown className={`size-4 shrink-0 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
 
-                {isDropdownOpen && (
-                  <>
-                    <div 
-                      className="fixed inset-0 z-40"
-                      onClick={() => setIsDropdownOpen(false)}
-                    />
-                    <div className="absolute left-0 mt-2 w-full sm:w-[260px] bg-white dark:bg-black border border-border shadow-2xl z-[100] flex flex-col p-1 animate-in fade-in slide-in-from-top-2">
-                      <a 
-                        href={resumeEnDark} download onClick={() => setIsDropdownOpen(false)}
-                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
-                      >
-                        {language === "en" ? "English - Dark Theme" : "ინგლისური (მუქი თემა)"}
-                      </a>
-                      <a 
-                        href={resumeEnLight} download onClick={() => setIsDropdownOpen(false)}
-                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
-                      >
-                        {language === "en" ? "English - Light Theme" : "ინგლისური (ღია თემა)"}
-                      </a>
-                      <a 
-                        href={resumeKaDark} download onClick={() => setIsDropdownOpen(false)}
-                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
-                      >
-                        {language === "en" ? "Georgian - Dark Theme" : "ქართული (მუქი თემა)"}
-                      </a>
-                      <a 
-                        href={resumeKaLight} download onClick={() => setIsDropdownOpen(false)}
-                        className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
-                      >
-                        {language === "en" ? "Georgian - Light Theme" : "ქართული (ღია თემა)"}
-                      </a>
-                    </div>
-                  </>
-                )}
+                  {isDropdownOpen && (
+                    <>
+                      <div 
+                        className="fixed inset-0 z-40"
+                        onClick={() => setIsDropdownOpen(false)}
+                      />
+                      <div className="absolute left-0 bottom-full mb-2 lg:bottom-auto lg:top-full lg:mt-2 w-full bg-white dark:bg-black border border-border shadow-2xl z-[100] flex flex-col p-1 animate-in fade-in lg:slide-in-from-top-2 slide-in-from-bottom-2">
+                        <a 
+                          href={resumeEnDark} download onClick={() => setIsDropdownOpen(false)}
+                          className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                        >
+                          {language === "en" ? "English - Dark Theme" : "ინგლისური (მუქი თემა)"}
+                        </a>
+                        <a 
+                          href={resumeEnLight} download onClick={() => setIsDropdownOpen(false)}
+                          className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                        >
+                          {language === "en" ? "English - Light Theme" : "ინგლისური (ღია თემა)"}
+                        </a>
+                        <a 
+                          href={resumeKaDark} download onClick={() => setIsDropdownOpen(false)}
+                          className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                        >
+                          {language === "en" ? "Georgian - Dark Theme" : "ქართული (მუქი თემა)"}
+                        </a>
+                        <a 
+                          href={resumeKaLight} download onClick={() => setIsDropdownOpen(false)}
+                          className="px-4 py-3 text-[13px] font-medium text-foreground hover:bg-muted transition-colors text-left"
+                        >
+                          {language === "en" ? "Georgian - Light Theme" : "ქართული (ღია თემა)"}
+                        </a>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
 
